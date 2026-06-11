@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Play, Flame, Trophy, Send, Sparkles } from "lucide-react";
 import NovaIspLogo from "./NovaIspLogo";
 
@@ -8,33 +8,6 @@ interface CompactHeroProps {
 }
 
 export default function CompactHero({ onStart, participantCount }: CompactHeroProps) {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 3,
-    hours: 11,
-    minutes: 45,
-    seconds: 22,
-  });
-
-  // Tick countdown timer
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        } else if (prev.days > 0) {
-          return { days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
-        } else {
-          return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-        }
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="relative w-full h-[calc(100vh-68px)] flex flex-col items-center justify-center bg-gradient-to-b from-[#0b071a] via-[#070412] to-[#04020a] px-4 py-4 text-center select-none overflow-hidden" id="compact-hero-container">
       
@@ -55,22 +28,6 @@ export default function CompactHero({ onStart, participantCount }: CompactHeroPr
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-950/45 border border-purple-500/20 text-fuchsia-400 text-[10px] font-mono tracking-widest uppercase rounded-full shadow-lg">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             CONEXÃO INSTANTÂNEA NOVA ISP • ATIVA
-          </div>
-        </div>
-
-        {/* Dynamic mini-countdown & active counter in single line */}
-        <div className="grid grid-cols-2 gap-3 w-full max-w-sm sm:max-w-md">
-          <div className="bg-[#120930]/40 border border-purple-900/30 px-3.5 py-2.0 rounded-xl text-left">
-            <span className="text-[9px] text-purple-400 font-mono block uppercase">CONEXÕES ATIVAS</span>
-            <span className="text-sm font-mono font-black text-white">
-              {(participantCount + 28410).toLocaleString()}
-            </span>
-          </div>
-          <div className="bg-[#120930]/40 border border-purple-900/30 px-3.5 py-2.0 rounded-xl text-left">
-            <span className="text-[9px] text-purple-400 font-mono block uppercase">FECHAMENTO EM</span>
-            <span className="text-sm font-mono font-black text-fuchsia-400">
-              {timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m
-            </span>
           </div>
         </div>
 
