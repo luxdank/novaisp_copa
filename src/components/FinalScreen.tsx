@@ -135,7 +135,7 @@ export default function FinalScreen({
       const dataUrl = canvas.toDataURL("image/png");
 
       // Caption message configuration
-      const captionText = `🏆 Meu Pódio Oficial da Copa do Mundo 2026 está definido! 🤩\n\n🥇 Campeão: ${champObj?.name || "Indefinido"} ${champObj?.flag || ""}\n🥈 Vice: ${rUpObj?.name || "Indefinido"} ${rUpObj?.flag || ""}\n🥉 3º Lugar: ${thirdObj?.name || "Indefinido"} ${thirdObj?.flag || ""}\n\nMonte seu palpite em alta velocidade: ${window.location.origin} !\n\n#DesafioNovaISP #Copa2026 #Futebol #MeuPalpite #NovaISP`;
+      const captionText = `🏆 Meu Pódio Oficial da Copa do Mundo 2026 está definido! 🤩\n\n🥇 Campeão: ${champObj?.name || "Indefinido"} ${champObj?.flag || ""}\n🥈 Vice: ${rUpObj?.name || "Indefinido"} ${rUpObj?.flag || ""}\n🥉 3º Lugar: ${thirdObj?.name || "Indefinido"} ${thirdObj?.flag || ""}\n\nSintonize em ultravelocidade e monte seu palpite com a @siganovaisp no link: ${window.location.origin} !\n\n#DesafioNovaISP #MeuPalpite #Copa2026 #NovaISP`;
       
       try {
         await navigator.clipboard.writeText(captionText);
@@ -211,88 +211,104 @@ export default function FinalScreen({
           </p>
         </div>
 
-        {/* Podium Bracket Summary Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" id="podium-cards-container">
+        {/* Screenshot / Print Optimized Frame */}
+        <div className="relative border border-fuchsia-500/25 bg-gradient-to-b from-[#0c0622] via-[#06030f] to-[#020106] rounded-3xl p-6 md:p-8 mb-8 shadow-2xl overflow-hidden" id="podium-screenshot-zone">
+          {/* Subtle grid pattern background for the screenshot frame */}
+          <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
           
-          {/* Champion Card (Central Highlighting) */}
-          <div className="md:col-start-2 md:row-start-1 bg-gradient-to-b from-purple-950/45 via-[#100a2b] to-[#040108] rounded-3xl border-2 border-fuchsia-500 p-6 flex flex-col items-center justify-between text-center shadow-[0_0_30px_rgba(217,70,239,0.2)] transform md:scale-105 transition-all relative">
-            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-fuchsia-500 text-white text-[9px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-lg">
-              🥇 Campeão Supremo
-            </div>
-            
-            <div className="w-16 h-16 bg-fuchsia-500/10 border border-fuchsia-500/20 rounded-full flex items-center justify-center text-4xl shadow-md my-4 animate-pulse">
-              🏆
-            </div>
-            
-            {champObj ? (
-              <div className="flex flex-col items-center">
-                <img
-                  src={getTeamFlagUrl(champObj.code)}
-                  alt={champObj.name}
-                  className="w-16 h-11 object-cover rounded-lg shadow-xl border border-fuchsia-500 mb-2.5"
-                  referrerPolicy="no-referrer"
-                />
-                <h3 className="text-xl font-extrabold tracking-wide text-white font-sans uppercase">
-                  {champObj.name}
-                </h3>
-              </div>
-            ) : (
-              <span className="text-purple-400 text-xs italic">Fase de Bracket Indefinida</span>
-            )}
+          <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-fuchsia-500/20 border border-fuchsia-500/30 px-3 py-1 rounded-full text-[9px] font-mono font-black text-fuchsia-300 uppercase tracking-widest shadow-md z-10 animate-pulse">
+            <Camera className="w-3 h-3 text-fuchsia-300" />
+            <span>📸 Pronto para Print</span>
           </div>
 
-          {/* Runner Up Card */}
-          <div className="bg-gradient-to-b from-[#0a051d] to-[#030107] rounded-3xl border border-purple-900/40 p-5 flex flex-col items-center text-center justify-between shadow-xl relative mt-4 md:mt-0">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-700 text-white text-[8px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-wider border border-slate-600">
-              🥈 Vice-Campeão
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10" id="podium-cards-container">
             
-            <div className="w-12 h-12 bg-[#120a2e]/60 border border-purple-900/30 rounded-full flex items-center justify-center text-2xl my-4">
-              🥈
-            </div>
-            
-            {rUpObj ? (
-              <div className="flex flex-col items-center">
-                <img
-                  src={getTeamFlagUrl(rUpObj.code)}
-                  alt={rUpObj.name}
-                  className="w-13 h-9 object-cover rounded shadow-md border border-purple-900 mb-2"
-                  referrerPolicy="no-referrer"
-                />
-                <h3 className="text-sm font-bold tracking-wide text-purple-205 py-0.5 uppercase">
-                  {rUpObj.name}
-                </h3>
+            {/* Champion Card (Central Highlighting) */}
+            <div className="md:col-start-2 md:row-start-1 bg-gradient-to-b from-purple-950/45 via-[#100a2b] to-[#040108] rounded-3xl border-2 border-fuchsia-500 p-6 flex flex-col items-center justify-between text-center shadow-[0_0_30px_rgba(217,70,239,0.2)] transform md:scale-105 transition-all relative">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-fuchsia-500 text-white text-[9px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                🥇 Campeão Supremo
               </div>
-            ) : (
-              <span className="text-purple-500 text-xs italic">Palpite pendente</span>
-            )}
+              
+              <div className="w-16 h-16 bg-fuchsia-500/10 border border-fuchsia-500/20 rounded-full flex items-center justify-center text-4xl shadow-md my-4 animate-pulse">
+                🏆
+              </div>
+              
+              {champObj ? (
+                <div className="flex flex-col items-center">
+                  <img
+                    src={getTeamFlagUrl(champObj.code)}
+                    alt={champObj.name}
+                    className="w-16 h-11 object-cover rounded-lg shadow-xl border border-fuchsia-500 mb-2.5"
+                    referrerPolicy="no-referrer"
+                  />
+                  <h3 className="text-xl font-extrabold tracking-wide text-white font-sans uppercase">
+                    {champObj.name}
+                  </h3>
+                </div>
+              ) : (
+                <span className="text-purple-400 text-xs italic">Fase de Bracket Indefinida</span>
+              )}
+            </div>
+
+            {/* Runner Up Card */}
+            <div className="bg-gradient-to-b from-[#0a051d] to-[#030107] rounded-3xl border border-purple-900/40 p-5 flex flex-col items-center text-center justify-between shadow-xl relative mt-4 md:mt-0">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-700 text-white text-[8px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-wider border border-slate-600">
+                🥈 Vice-Campeão
+              </div>
+              
+              <div className="w-12 h-12 bg-[#120a2e]/60 border border-purple-900/30 rounded-full flex items-center justify-center text-2xl my-4">
+                🥈
+              </div>
+              
+              {rUpObj ? (
+                <div className="flex flex-col items-center">
+                  <img
+                    src={getTeamFlagUrl(rUpObj.code)}
+                    alt={rUpObj.name}
+                    className="w-13 h-9 object-cover rounded shadow-md border border-purple-900 mb-2"
+                    referrerPolicy="no-referrer"
+                  />
+                  <h3 className="text-sm font-bold tracking-wide text-purple-205 py-0.5 uppercase">
+                    {rUpObj.name}
+                  </h3>
+                </div>
+              ) : (
+                <span className="text-purple-500 text-xs italic">Palpite pendente</span>
+              )}
+            </div>
+
+            {/* Third Place Card */}
+            <div className="bg-gradient-to-b from-[#0a051d] to-[#030107] rounded-3xl border border-purple-900/40 p-5 flex flex-col items-center text-center justify-between shadow-xl relative mt-4 md:mt-0">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-700 text-white text-[8px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-wider border border-amber-600">
+                🥉 3º Colocado
+              </div>
+              
+              <div className="w-12 h-12 bg-amber-500/5 border border-amber-900/20 rounded-full flex items-center justify-center text-2xl my-4">
+                🥉
+              </div>
+              
+              {thirdObj ? (
+                <div className="flex flex-col items-center">
+                  <img
+                    src={getTeamFlagUrl(thirdObj.code)}
+                    alt={thirdObj.name}
+                    className="w-13 h-9 object-cover rounded shadow-md border border-purple-900 mb-2"
+                    referrerPolicy="no-referrer"
+                  />
+                  <h3 className="text-sm font-bold tracking-wide text-purple-205 py-0.5 uppercase">
+                    {thirdObj.name}
+                  </h3>
+                </div>
+              ) : (
+                <span className="text-purple-500 text-xs italic">Palpite pendente</span>
+              )}
+            </div>
           </div>
 
-          {/* Third Place Card */}
-          <div className="bg-gradient-to-b from-[#0a051d] to-[#030107] rounded-3xl border border-purple-900/40 p-5 flex flex-col items-center text-center justify-between shadow-xl relative mt-4 md:mt-0">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-700 text-white text-[8px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-wider border border-amber-600">
-              🥉 3º Colocado
-            </div>
-            
-            <div className="w-12 h-12 bg-amber-500/5 border border-amber-900/20 rounded-full flex items-center justify-center text-2xl my-4">
-              🥉
-            </div>
-            
-            {thirdObj ? (
-              <div className="flex flex-col items-center">
-                <img
-                  src={getTeamFlagUrl(thirdObj.code)}
-                  alt={thirdObj.name}
-                  className="w-13 h-9 object-cover rounded shadow-md border border-purple-900 mb-2"
-                  referrerPolicy="no-referrer"
-                />
-                <h3 className="text-sm font-bold tracking-wide text-purple-205 py-0.5 uppercase">
-                  {thirdObj.name}
-                </h3>
-              </div>
-            ) : (
-              <span className="text-purple-500 text-xs italic">Palpite pendente</span>
-            )}
+          <div className="text-center mt-5">
+            <span className="inline-block text-[10px] font-mono text-purple-400 font-bold uppercase tracking-wider">
+              ⚡ SINTONIZADO POR <span className="text-fuchsia-400">@SIGANOVAISP</span> • DESAFIO COPA 2026
+            </span>
           </div>
         </div>
 
@@ -350,8 +366,8 @@ export default function FinalScreen({
           <h3 className="text-lg font-black text-white uppercase tracking-wider flex items-center gap-2">
             Compartilhe no Instagram Stories
           </h3>
-          <p className="text-xs text-purple-300 max-w-sm mt-1.5 mb-6 leading-relaxed">
-            Gere uma imagem personalizada de alta resolução formatada sob medida para seu Story, com legenda copiada automaticamente!
+          <p className="text-xs text-purple-300 max-w-lg mt-2 mb-6 leading-relaxed">
+            Tire um print da área destacada do pódio acima ou clique no botão abaixo para gerar seu card de Story de alta qualidade. Ao postar, cole a legenda copiada e não esqueça de <b>marcar a <span className="text-fuchsia-400 font-extrabold">@siganovaisp</span></b>!
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch justify-center gap-3.5 w-full max-w-md">
@@ -603,9 +619,9 @@ export default function FinalScreen({
                     3
                   </div>
                   <div>
-                    <h5 className="text-[11px] font-bold text-white uppercase">Compartilhe nos Stories</h5>
+                    <h5 className="text-[11px] font-bold text-white uppercase">Mencione @siganovaisp</h5>
                     <p className="text-[10px] text-purple-400 mt-0.5 leading-normal">
-                      Abra o Instagram, selecione o print sintonizado da sua galeria, cole a legenda e marque seus amigos!
+                      Ao postar nos seus Stories do Instagram, <b>marque a conta oficial <span className="text-fuchsia-400 font-bold">@siganovaisp</span></b> e cole a legenda oficial com as hashtags!
                     </p>
                   </div>
                 </div>
