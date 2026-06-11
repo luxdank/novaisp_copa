@@ -206,9 +206,6 @@ export default function FinalScreen({
           <h2 className="text-3xl md:text-5xl font-sans lg:text-6xl font-black uppercase text-white mt-4 italic tracking-tight select-none">
             🏆 Seu Pódio Supremo
           </h2>
-          <p className="mt-2 text-[11px] md:text-xs text-purple-300 max-w-md mx-auto leading-relaxed font-light">
-            Sua transmissão preditiva sintonizou o futuro da Copa de 2026. Abaixo está o seu pódio supremo pronto para reinar!
-          </p>
         </div>
 
         {/* Screenshot / Print Optimized Frame */}
@@ -306,8 +303,8 @@ export default function FinalScreen({
           </div>
 
           <div className="text-center mt-5">
-            <span className="inline-block text-[10px] font-mono text-purple-400 font-bold uppercase tracking-wider">
-              ⚡ SINTONIZADO POR <span className="text-fuchsia-400">@SIGANOVAISP</span> • DESAFIO COPA 2026
+            <span className="inline-block text-[11px] font-mono text-purple-250 font-black uppercase tracking-wider">
+              ⚡ Você sempre conectado com a Nova ISP.
             </span>
           </div>
         </div>
@@ -367,36 +364,14 @@ export default function FinalScreen({
             Compartilhe no Instagram Stories
           </h3>
           <p className="text-xs text-purple-300 max-w-lg mt-2 mb-6 leading-relaxed">
-            Tire um print da área destacada do pódio acima ou clique no botão abaixo para gerar seu card de Story de alta qualidade. Ao postar, cole a legenda copiada e não esqueça de <b>marcar a <span className="text-fuchsia-400 font-extrabold">@siganovaisp</span></b>!
+            Tire um print da área destacada do pódio acima para compartilhar. Ao postar, cole a legenda copiada e não esqueça de <b>marcar a <span className="text-fuchsia-400 font-extrabold">@siganovaisp</span></b>!
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch justify-center gap-3.5 w-full max-w-md">
             <button
-              onClick={handleInstagramShare}
-              disabled={isCapturing || !champObj}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-rose-500 via-purple-600 to-fuchsia-600 hover:from-rose-400 hover:via-purple-500 hover:to-fuchsia-500 text-white font-black rounded-2xl cursor-pointer disabled:opacity-40 select-none transition-all text-xs uppercase tracking-widest shadow-lg hover:scale-[1.02] border border-fuchsia-400/30"
-              id="btn-instagram-capture"
-            >
-              {isCapturing ? (
-                <>
-                  <svg className="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                  </svg>
-                  <span>Mapeando Pódio...</span>
-                </>
-              ) : (
-                <>
-                  <Instagram className="w-4 h-4" />
-                  Tirar Print e Compartilhar
-                </>
-              )}
-            </button>
-
-            <button
               onClick={handleWhatsAppShare}
               disabled={!champObj}
-              className="inline-flex items-center justify-center gap-2 px-5 py-4 bg-[#0d0a27] hover:bg-purple-950 text-purple-300 hover:text-white font-extrabold rounded-2xl cursor-pointer select-none transition-all text-xs uppercase tracking-wider border border-purple-900/60"
+              className="inline-flex items-center justify-center gap-2 px-5 py-4 bg-[#0d0a27] hover:bg-purple-950 text-purple-300 hover:text-white font-extrabold rounded-2xl cursor-pointer select-none transition-all text-xs uppercase tracking-wider border border-purple-900/60 flex-1"
             >
               <MessageCircle className="w-4 h-4 text-emerald-400" />
               WhatsApp
@@ -404,7 +379,7 @@ export default function FinalScreen({
 
             <button
               onClick={handleCopyLink}
-              className="inline-flex items-center justify-center gap-2 px-5 py-4 bg-[#0d0a27] hover:bg-purple-950 text-purple-300 hover:text-white font-extrabold rounded-2xl cursor-pointer select-none transition-all text-xs uppercase tracking-wider border border-purple-900/60"
+              className="inline-flex items-center justify-center gap-2 px-5 py-4 bg-[#0d0a27] hover:bg-purple-950 text-purple-300 hover:text-white font-extrabold rounded-2xl cursor-pointer select-none transition-all text-xs uppercase tracking-wider border border-purple-900/60 flex-1"
             >
               {copied ? (
                 <>
