@@ -73,7 +73,9 @@ export default function GroupStage({
 
   const handleDragOver = (e: React.DragEvent, index: number) => {
     e.preventDefault();
-    setDragOverIndex(index);
+    if (dragOverIndex !== index) {
+      setDragOverIndex(index);
+    }
   };
 
   const handleDragLeave = () => {
@@ -228,8 +230,8 @@ export default function GroupStage({
   return (
     <section className="bg-[#070412] text-white py-12 px-4 md:px-8 relative" id="group-stage-section">
       {/* Background neon light glow */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] bg-fuchsia-900/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,rgba(217,70,239,0.04)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Hexa Animated Overlay Alert */}
       {showHexaAlert && (

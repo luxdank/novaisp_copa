@@ -192,8 +192,8 @@ export default function FinalScreen({
   return (
     <section className="bg-[#070412] py-12 px-4 md:px-8 border-t border-purple-900/10 overflow-hidden relative" id="final-screen-section">
       {/* Immersive background glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-600/5 rounded-full blur-[140px] pointer-events-none animate-pulse" />
-      <div className="absolute bottom-10 left-10 w-48 h-48 bg-fuchsia-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.06)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-40 h-40 bg-[radial-gradient(circle_at_center,rgba(217,70,239,0.04)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         
@@ -341,7 +341,7 @@ export default function FinalScreen({
 
         {/* Premium Screen Capturer & Instagram Publishing Zone */}
         <div className="bg-gradient-to-r from-[#170e30]/85 to-[#0b051b]/90 border-2 border-fuchsia-500/30 p-6 md:p-8 rounded-3xl mb-8 shadow-2xl flex flex-col items-center justify-center text-center relative overflow-hidden" id="share-action-card">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-fuchsia-550/10 rounded-full blur-[35px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_center,rgba(217,70,239,0.1)_0%,transparent_70%)] pointer-events-none" />
           
           <div className="p-3 bg-gradient-to-tr from-rose-500/10 to-fuchsia-500/20 text-fuchsia-400 rounded-2xl border border-fuchsia-500/20 mb-3 animate-bounce">
             <Camera className="w-6 h-6 text-fuchsia-400" />
@@ -421,8 +421,8 @@ export default function FinalScreen({
           >
             {/* Visual background decorations overlay inside story box */}
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-950/70 via-[#070412] to-[#010003] pointer-events-none" />
-            <div className="absolute top-1/4 -right-20 w-72 h-72 bg-purple-600/10 rounded-full blur-[80px]" />
-            <div className="absolute bottom-1/4 -left-20 w-72 h-72 bg-fuchsia-600/10 rounded-full blur-[80px]" />
+            <div className="absolute top-1/4 -right-20 w-72 h-72 bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.08)_0%,transparent_70%)]" />
+            <div className="absolute bottom-1/4 -left-20 w-72 h-72 bg-[radial-gradient(circle_at_center,rgba(217,70,239,0.08)_0%,transparent_70%)]" />
             
             {/* Holographic matrix grids */}
             <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:24px_24px]" />

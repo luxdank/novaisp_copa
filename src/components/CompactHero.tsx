@@ -15,8 +15,8 @@ export default function CompactHero({ onStart, participantCount }: CompactHeroPr
       <div className="absolute inset-0 bg-[linear-gradient(rgba(147,51,234,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(147,51,234,0.01)_1px,transparent_1px)] bg-[size:40px_40px] opacity-40 pointer-events-none" />
 
       {/* Cyber lights */}
-      <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-purple-600/10 rounded-full blur-[110px] pointer-events-none" />
-      <div className="absolute bottom-[-100px] right-[-100px] w-72 h-72 bg-fuchsia-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[500px] h-[350px] bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute bottom-[-100px] right-[-100px] w-64 h-64 bg-[radial-gradient(circle_at_center,rgba(217,70,239,0.04)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="relative max-w-2xl w-full flex flex-col items-center justify-center gap-4 sm:gap-5 py-2">
         

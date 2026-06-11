@@ -215,8 +215,8 @@ export default function BracketStage({
   return (
     <section className="bg-[#070412] text-white py-12 px-4 md:px-8 relative min-h-[calc(100vh-70px)] flex flex-col justify-between" id="bracket-stage-section">
       {/* Decorative cosmic neon glow fields */}
-      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-fuchsia-900/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-[350px] h-[350px] bg-[radial-gradient(circle_at_center,rgba(217,70,239,0.04)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-3xl mx-auto w-full relative z-10 flex-grow flex flex-col justify-center">
         

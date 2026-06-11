@@ -39,7 +39,7 @@ export default function ThirdsStage({
   return (
     <section className="bg-[#070412] text-white py-12 px-4 md:px-8 relative min-h-[calc(100vh-70px)] flex flex-col justify-between" id="thirds-stage-section">
       {/* Visual background atmospheric lights */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[450px] h-[450px] bg-purple-900/10 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.06)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto w-full relative z-10 flex-grow flex flex-col justify-center">
         
