@@ -1,0 +1,87 @@
+{
+  "entities": {
+    "Prediction": {
+      "title": "Prediction",
+      "description": "User prediction submit for Copa do Mundo 2026",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "User's full name"
+        },
+        "whatsapp": {
+          "type": "string",
+          "description": "User's WhatsApp number (optional)"
+        },
+        "city": {
+          "type": "string",
+          "description": "User's city"
+        },
+        "champion": {
+          "type": "string",
+          "description": "Selected champion team code"
+        },
+        "runnerUp": {
+          "type": "string",
+          "description": "Selected runner up team code"
+        },
+        "thirdPlace": {
+          "type": "string",
+          "description": "Selected third place team code"
+        },
+        "scoreProbability": {
+          "type": "number",
+          "description": "Simulated/visual accuracy probability percentage"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when this bracket was submitted"
+        },
+        "groups": {
+          "type": "object",
+          "description": "Standings predictions for all groups, mapped from group letter to ordered list of team codes"
+        },
+        "bracket": {
+          "type": "object",
+          "description": "Selected bracket winners mapped by round match labels (e.g., R32_1, R16_1, QF_1, SF_1, FI_1)"
+        }
+      },
+      "required": ["name", "city", "champion", "runnerUp", "thirdPlace", "createdAt", "groups", "bracket"]
+    },
+    "GlobalStats": {
+      "title": "GlobalStats",
+      "description": "Aggregate statistical counts of selections across all submissions",
+      "type": "object",
+      "properties": {
+        "totalParticipants": {
+          "type": "number",
+          "description": "Total number of submitted predictions"
+        },
+        "championsCount": {
+          "type": "object",
+          "description": "Maps team code to count of times chosen as champion"
+        },
+        "lockSubmissions": {
+          "type": "boolean",
+          "description": "True if admin has locked the brackets and closed submissions"
+        }
+      },
+      "required": ["totalParticipants", "championsCount"]
+    }
+  },
+  "firestore": {
+    "predictions/{predictionId}": {
+      "schema": {
+        "$ref": "#/entities/Prediction"
+      },
+      "description": "Individual brackets and user contact info submitted by participants"
+    },
+    "stats/{statsId}": {
+      "schema": {
+        "$ref": "#/entities/GlobalStats"
+      },
+      "description": "Global statistics and configuration document"
+    }
+  }
+}

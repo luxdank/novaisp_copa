@@ -1,0 +1,6 @@
+{
+  "name": "Desafio da Nova ISP",
+  "description": "Monte toda a trajetória da Copa do Mundo FIFA 2026, escolhendo classificados e definindo o campeão.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

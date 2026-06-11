@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global safety net (default deny)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    
+    // Predictions collection: Users can create and read predictions (to see lists, rankings, or friends' predictions)
+    match /predictions/{predictionId} {
+      allow read, get, list: if true;
+      
+      allow create: if request.resource.data.name is string &&
+                      request.resource.data.name.size() > 0 &&
+                      request.resource.data.name.size() <= 200 &&
+                      request.resource.data.city is string &&
+                      request.resource.data.city.size() > 0 &&
+                      request.resource.data.city.size() <= 100 &&
+                      request.resource.data.champion is string &&
+                      request.resource.data.runnerUp is string &&
+                      request.resource.data.thirdPlace is string;
+                      
+      allow update, delete: if false; // Submissions are immutable for integrity
+    }
+
+    // Stats collection: Contains global statistics of selection counts, locked status, etc.
+    match /stats/{statsId} {
+      allow read, get: if true;
+      // Allow modifying the stats document during predictions submission (e.g. via write-batch or transactions) to keep aggregate numbers up to date without reads
+      allow create, update: if true;
+      allow delete: if false;
+    }
+  }
+}
